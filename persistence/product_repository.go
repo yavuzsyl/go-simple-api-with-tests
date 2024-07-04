@@ -32,7 +32,7 @@ func (productRepository *ProductRepository) GetAll() ([]domain.Product, error) {
 	for productRows.Next() {
 
 		var product domain.Product
-		err = productRows.Scan(&product.Id, &product.Name, &product.Price, &product.Discount, &product.Price)
+		err = productRows.Scan(&product.Id, &product.Name, &product.Price, &product.Discount, &product.Store)
 		if err != nil {
 			log.Error("Error while scanning product rows: %v\n", err)
 			return []domain.Product{}, err
